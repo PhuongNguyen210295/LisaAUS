@@ -34,7 +34,9 @@ export function ScheduleProvider({ children }: { children: ReactNode }) {
   const [lastSync, setLastSync] = useState<number | null>(null);
   const [syncState, setSyncState] = useState<SyncState>('idle');
   const lastSyncRef = useRef<number | null>(null);
-  lastSyncRef.current = lastSync;
+  useEffect(() => {
+    lastSyncRef.current = lastSync;
+  }, [lastSync]);
 
   useEffect(() => {
     load().then((d) => {
@@ -58,7 +60,7 @@ export function ScheduleProvider({ children }: { children: ReactNode }) {
       if (settings.calendarSync) syncCalendar(shifts).catch((e) => console.warn('Calendar sync failed', e));
     }, 1500);
     return () => clearTimeout(t);
-  }, [ready, shifts, settings.reminderMinutes, settings.nightBefore, settings.calendarSync]);
+  }, [ready, shifts, settings]);
 
   const ingestPage = useCallback((msg: PageMessage) => {
     if (!isLisaUrl(msg.url)) return null;

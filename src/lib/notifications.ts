@@ -20,6 +20,8 @@ export async function ensurePermission(): Promise<boolean> {
   if (Platform.OS === 'android') {
     await Notifications.setNotificationChannelAsync('shifts', {
       name: 'Shift reminders',
+      // Re-exported via `export *`, which the lint rule can't follow; it exists at runtime.
+      // eslint-disable-next-line import/namespace
       importance: Notifications.AndroidImportance.HIGH,
     });
   }

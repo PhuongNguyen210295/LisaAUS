@@ -12,8 +12,8 @@ import { colors } from '../lib/theme';
  */
 export default function LisaScreen() {
   const { settings, ingestPage } = useSchedule();
-  // WebView's default generic (undefined) collapses its props to `never`; {} keeps them.
-  const web = useRef<WebView<{}>>(null);
+  // WebView's default generic (undefined) collapses its props to `never`; `object` keeps them.
+  const web = useRef<WebView<object>>(null);
   const [toast, setToast] = useState<string | null>(null);
   const [canGoBack, setCanGoBack] = useState(false);
   // Fixed on first render: changing `source` later would make the page reload.

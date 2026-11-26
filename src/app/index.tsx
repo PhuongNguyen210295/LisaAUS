@@ -7,7 +7,7 @@ import { useSchedule } from '../lib/ScheduleContext';
 import { colors } from '../lib/theme';
 
 function useNow(intervalMs = 30000) {
-  const [now, setNow] = useState(Date.now());
+  const [now, setNow] = useState(() => Date.now());
   useEffect(() => {
     const t = setInterval(() => setNow(Date.now()), intervalMs);
     return () => clearInterval(t);
@@ -80,7 +80,7 @@ export default function ShiftsScreen() {
           <Text style={styles.emptyTitle}>No shifts yet</Text>
           <Text style={styles.emptyText}>
             Open the Lisa tab, sign in, and go to My Schedule. Every week you look at is saved here
-            and you'll get reminders before each shift.
+            and you&apos;ll get reminders before each shift.
           </Text>
           <Pressable style={styles.button} onPress={() => router.navigate('/lisa')}>
             <Text style={styles.buttonText}>Open Lisa</Text>
