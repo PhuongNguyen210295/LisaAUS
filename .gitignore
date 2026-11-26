@@ -43,3 +43,4 @@ yarn-error.*
 # generated native projects (Continuous Native Generation)
 /ios
 /android
+/release
