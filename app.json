@@ -1,0 +1,37 @@
+{
+  "expo": {
+    "name": "Lisa Shifts",
+    "slug": "lisa-shifts",
+    "scheme": "lisashifts",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "dark",
+    "backgroundColor": "#1E1F22",
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.lisashifts.app",
+      "infoPlist": {
+        "NSCalendarsUsageDescription": "Lisa Shifts adds your work shifts to a calendar on this phone.",
+        "NSCalendarsFullAccessUsageDescription": "Lisa Shifts adds your work shifts to a calendar on this phone.",
+        "ITSAppUsesNonExemptEncryption": false
+      }
+    },
+    "android": {
+      "package": "com.lisashifts.app",
+      "adaptiveIcon": {
+        "backgroundColor": "#1E1F22",
+        "foregroundImage": "./assets/android-icon-foreground.png",
+        "backgroundImage": "./assets/android-icon-background.png",
+        "monochromeImage": "./assets/android-icon-monochrome.png"
+      },
+      "permissions": ["READ_CALENDAR", "WRITE_CALENDAR", "POST_NOTIFICATIONS", "SCHEDULE_EXACT_ALARM"],
+      "predictiveBackGestureEnabled": false
+    },
+    "plugins": [
+      "expo-router",
+      ["expo-notifications", { "color": "#8AB4F8" }],
+      ["expo-calendar", { "calendarPermission": "Lisa Shifts adds your work shifts to a calendar on this phone." }]
+    ]
+  }
+}
